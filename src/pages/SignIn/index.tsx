@@ -1,13 +1,23 @@
 import React from 'react';
-import { Text, StatusBar } from 'react-native';
+import { Image } from 'react-native';
 
-import { Container } from './styles';
+import logoImage from '../../assets/logo.png';
+
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+
+import { Container, Title } from './styles';
 
 const SignIn: React.FC = () => {
   return (
-    <Container style={{ backgroundColor: '#312e38', flex: 1 }}>
-      <StatusBar backgroundColor="#312e38" barStyle="light-content" />
-      <Text>App</Text>
+    <Container>
+      <Image source={logoImage} />
+      <Title>Faça seu logon</Title>
+
+      <Input name="email" icon="mail" placeholder="E-mail" />
+      <Input name="password" icon="lock" placeholder="Senha" />
+
+      <Button>Entrar</Button>
     </Container>
   );
 };
