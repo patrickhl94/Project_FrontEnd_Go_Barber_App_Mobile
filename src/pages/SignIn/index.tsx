@@ -1,28 +1,63 @@
 import React from 'react';
-import { Image } from 'react-native';
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  View,
+  ScrollView,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 import logoImage from '../../assets/logo.png';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Title, ForgotPassword, ForgotPasswordText } from './styles';
+import {
+  Container,
+  Title,
+  ForgotPassword,
+  ForgotPasswordText,
+  CreateAccountButton,
+  CreateAccountButtonText,
+} from './styles';
 
 const SignIn: React.FC = () => {
   return (
-    <Container>
-      <Image source={logoImage} />
-      <Title>Faça seu logon</Title>
+    <>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        enabled
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
+        <ScrollView
+          contentContainerStyle={{ flex: 1 }}
+          keyboardShouldPersistTaps="handled"
+        >
+          <Container>
+            <Image source={logoImage} />
 
-      <Input name="email" icon="mail" placeholder="E-mail" />
-      <Input name="password" icon="lock" placeholder="Senha" />
+            <View>
+              <Title>Faça seu logon</Title>
+            </View>
 
-      <Button>Entrar</Button>
+            <Input name="email" icon="mail" placeholder="E-mail" />
+            <Input name="password" icon="lock" placeholder="Senha" />
 
-      <ForgotPassword onPress={() => {}}>
-        <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-      </ForgotPassword>
-    </Container>
+            <Button>Entrar</Button>
+
+            <ForgotPassword onPress={() => {}}>
+              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+            </ForgotPassword>
+          </Container>
+        </ScrollView>
+      </KeyboardAvoidingView>
+
+      <CreateAccountButton onPress={() => {}}>
+        <Icon name="log-in" size={20} color="#ff9000" />
+        <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
+      </CreateAccountButton>
+    </>
   );
 };
 
