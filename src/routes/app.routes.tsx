@@ -11,7 +11,7 @@ const Routes: React.FC = () => {
     <NavigationContainer>
       <App.Navigator
         screenOptions={{
-          // headerShown: false,
+          headerShown: false,
           cardStyle: { backgroundColor: '#312e38' },
         }}
       >
