@@ -13,14 +13,14 @@ interface AuthState {
   token: string;
   user: object;
 }
-interface SigniCredentials {
+interface SigninCredentials {
   email: string;
   password: string;
 }
 interface AuthContextData {
   user: object;
   loading: boolean;
-  signIn(credentials: SigniCredentials): Promise<void>;
+  signIn(credentials: SigninCredentials): Promise<void>;
   signOut(): void;
 }
 
